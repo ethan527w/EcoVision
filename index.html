@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbon Tracker App</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+  <!-- Add this inside your <head> tag or at the top of your HTML file -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+
+</head>
+<body>
+<nav>
+  <a href="#" id="link-page1" class="active">Home</a>
+  <a href="#" id="link-page2">Calculator</a>
+  <a href="#" id="link-page3">Charts</a>
+  <a href="#" id="link-page4">Links</a>
+  <a href="#" id="link-page5">Map</a>
+</nav>
+
+<!-- Page 1: Home -->
+<div id="page1" class="page active">
+  <h1>Welcome to Carbon Tracker</h1>
+  <p>Track your daily carbon emissions and learn how to reduce them.</p>
+  <button class="Mainbutton button1">Donation</button>
+  <button class="Mainbutton button2">Carbon Emmisions Trading</button>
+  <button class="Mainbutton button3">Responsible</button>
+  <button class="Mainbutton button4">Invest in ESG Companies</button>
+</div>
+
+<!-- Page 2: Calculator -->
+<div id="page2" class="page">
+  <h2>Carbon Emission Calculator</h2>
+  <h3>Search for Item</h3>
+  <input type="text" id="searchBar" placeholder="Type item name...">
+  <ul id="searchResults"></ul>
+
+  <h3>Enter Amount</h3>
+  <input type="number" id="searchItemCount" placeholder="Count">
+  <button id="addSearchedItemBtn">Add Item</button>
+
+
+  <h3>Custom Emission</h3>
+  <input type="text" id="customItemName" placeholder="Item Name">
+  <input type="number" id="customItemEmission" placeholder="Emission per unit (kg CO2)">
+  <input type="number" id="customItemCount" placeholder="Count">
+  <button id="addCustomItemBtn">Add Custom Item</button>
+
+  <h3>Total Emission: <span id="totalEmission">0.00</span> kg CO2</h3>
+  <button id="resetBtn">Reset</button>
+
+  <h3>Save to Calendar</h3>
+  <input type="date" id="dateInput">
+  <button id="saveEmissionBtn">Save Emission</button>
+</div>
+
+<!-- Page 3: Charts -->
+<div id="page3" class="page">
+  <h2>Emission Charts</h2>
+  <h3>Pie Chart</h3>
+  <canvas id="emissionPieChart"></canvas>
+
+  <h3>Line Chart (Emission History)</h3>
+  <label for="startDate">Start Date:</label>
+  <input type="date" id="startDate">
+  <label for="endDate">End Date:</label>
+  <input type="date" id="endDate">
+  <button id="generateLineChart">Generate Line Chart</button>
+  <canvas id="emissionLineChart"></canvas>
+</div>
+
+<!-- Page 4: External Links -->
+<div id="page4" class="page">
+  <h2>Useful External Links</h2>
+  <div id="externalLinks"></div>
+</div>
+
+<!-- Page 5: Map -->
+<div id="page5" class="page">
+  <h2>Carbon Emission Map Calculator</h2>
+  <label for="vehicle-select">Select Vehicle:</label>
+  <select id="vehicle-select">
+    <option value="car">Car</option>
+    <option value="bus">Bus</option>
+    <option value="underground">Underground</option>
+    <option value="custom">Custom</option>
+  </select>
+
+  <p>Select two points on the map to calculate the distance and estimated emissions:</p>
+  <button id="resetMapBtn">Reset Map</button>
+
+  <div id="map" style="height: 300px;"></div>
+  <p><strong>Distance:</strong> <span id="mapDistance">0</span> km</p>
+  <p><strong>Estimated Emission:</strong> <span id="mapEmission">0.00</span> kg CO2</p>
+  <button id="addRouteEmissionBtn">Add Route Emission to Total</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
