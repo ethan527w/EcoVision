@@ -1,6 +1,5 @@
 import Foundation
 
-// This struct defines what a "Product" is in our app
 struct Product: Identifiable {
     let id = UUID()
     let name: String
@@ -8,14 +7,17 @@ struct Product: Identifiable {
     let shortDescription: String
     let whatIsIt: String
     let howItWorks: String
+    let ingredients: String // Added this!
+    let purchaseLink: String // Added this for the URL!
 }
 
-// We can create our "mock" data right here for testing
-// This is the data for your "Spacemilk" item
+// Updated Mock Data with your specific link and ingredients
 let mockProduct = Product(
     name: "Spacemilk",
-    imageName: "spacemilk", // <-- This MUST match the image name in Assets.xcassets
+    imageName: "spacemilk",
     shortDescription: "Meet Chocolate. Tasty, clean, guilt-free.",
-    whatIsIt: "A sustainable milk alternative.",
-    howItWorks: "Made from space oats."
+    whatIsIt: "A sustainable milk alternative that saves 95% of water compared to dairy.",
+    howItWorks: "Made from space oats using revolutionary fermentation technology.",
+    ingredients: "Water, Space Oats, Cocoa Powder, Sunflower Oil, Pea Protein, Cane Sugar, Sea Salt, Calcium Carbonate.",
+    purchaseLink: "https://spacemilk.com?sca_ref=8400176.9seAfaSLSM" // Your link
 )
